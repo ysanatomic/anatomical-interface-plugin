@@ -1,0 +1,11 @@
+name: DivictusInterfacePlugin
+version: 0.2
+author: Anatomic
+main: me.anatomic.divictus.interfaceplugin.InterfacePlugin
+api-version: 1.8
+depend: [ProtocolLib]
+commands:
+  test:
+    description: Test Command
+    usage: /<command>
+
