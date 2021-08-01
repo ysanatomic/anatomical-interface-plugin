@@ -31,6 +31,7 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         System.out.println("[DivictusInterfacePlugin] Plugin is enabled.");
+        System.out.println("[DivictusInterfacePlugin] Developed by Anatomic.");
 
         protocolManager = ProtocolLibrary.getProtocolManager();
 

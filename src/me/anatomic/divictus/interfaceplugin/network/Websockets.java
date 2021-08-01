@@ -1,26 +1,45 @@
 package me.anatomic.divictus.interfaceplugin.network;
 
-import com.comphenix.protocol.events.PacketEvent;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.neovisionaries.ws.client.*;
 import me.anatomic.divictus.interfaceplugin.InterfacePlugin;
+import me.anatomic.divictus.interfaceplugin.Server.SendMessage;
 
-import javax.naming.Context;
 import java.io.IOException;
+import java.util.UUID;
 
 public class Websockets {
 
-    String path = "ws://localhost:8888";
+    String path = "ws://localhost:8000/ws/server/chat/e28f6137-24f1-46ca-b655-093565a78d46/";
 
     Gson gson =  new GsonBuilder().create();
     public WebSocket ws = null; // actual websocket
     public boolean runningSocket = false;
     boolean runningListener = false;
     boolean wsPermitted = true;
+    private Object IncomingTextFromWS;
 
     boolean isPermitted(){
         return wsPermitted;
+    }
+
+    public class MessageFromWS {
+        private final String authorUUID;
+        private final String text;
+
+        public MessageFromWS(String authorUUID, String text) {
+            System.out.println("Through here 2");
+            this.authorUUID = authorUUID;
+            this.text = text;
+        }
+    }
+
+    public class IncomingTextFromWS {
+        private final MessageFromWS message;
+        public IncomingTextFromWS(MessageFromWS message){
+            this.message = message  ;
+        }
     }
 
     public void startWebSocket(InterfacePlugin context){
@@ -65,8 +84,9 @@ public class Websockets {
         (new Thread(new Runnable(){
             public void run(){
                 while(true) {
-                    if(runningSocket == true && runningListener == false) {
+                    if(runningSocket && !runningListener) {
                         runningListener = true;
+//                        System.out.println("Starting listener.");
                         initiateWebSocketListener(context);
                     } else if(!wsPermitted) {
                         break;
@@ -118,6 +138,13 @@ public class Websockets {
             public void onTextMessage(WebSocket websocket, String text) throws Exception {
                 super.onTextMessage(websocket, text);
                 System.out.println(text);
+                System.out.println("here");
+                IncomingTextFromWS incoming = gson.fromJson(text, IncomingTextFromWS.class);
+                System.out.println(incoming);
+                System.out.println(incoming.message);
+                System.out.println(incoming.message.text);
+                System.out.println(incoming.message.authorUUID);
+                new SendMessage(UUID.fromString(incoming.message.authorUUID), incoming.message.text);
             }
 
         });
