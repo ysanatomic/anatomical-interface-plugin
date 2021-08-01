@@ -6,7 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4803fe2f-1da6-42f9-84d1-0f9ebdaf5383" name="Changes" comment="" />
+    <list default="true" id="4803fe2f-1da6-42f9-84d1-0f9ebdaf5383" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/ChatMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +24,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -36,7 +45,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/gson-2.8.7.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.5968586" />
@@ -51,10 +60,24 @@
       <updated>1627683153813</updated>
       <workItem from="1627683154947" duration="2954000" />
       <workItem from="1627748308798" duration="9766000" />
+      <workItem from="1627762511490" duration="646000" />
+      <workItem from="1627771019212" duration="458000" />
+      <workItem from="1627811810811" duration="2647000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

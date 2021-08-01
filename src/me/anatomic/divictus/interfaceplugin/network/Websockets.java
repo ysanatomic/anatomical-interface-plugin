@@ -1,5 +1,6 @@
 package me.anatomic.divictus.interfaceplugin.network;
 
+import com.comphenix.protocol.events.PacketEvent;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.neovisionaries.ws.client.*;
@@ -25,14 +26,24 @@ public class Websockets {
     public void startWebSocket(InterfacePlugin context){
         (new Thread(new Runnable(){
             public void run(){
+                int i = 0;
                 while(true) {
                     if((ws == null || ws.getState() == WebSocketState.CLOSED || ws.getState() == null) && wsPermitted == true) {
                         try {
                             ws = new WebSocketFactory().createSocket(path, 5000).connect();
                             runningSocket = true;
+                            i = 0; // reset the counter of times it wasn't able to connect;
                         } catch (WebSocketException e) {
                             runningSocket = false;
-                            e.printStackTrace();
+//                            e.printStackTrace();
+                            if(i<3){ // only display the message max 3 times and be done with it
+                                System.out.println("[DivictusInterfacePlugin] failed to connect to the WebSocket.");
+                                i++;
+                                if (i==3){
+                                    System.out.println("[DivictusInterfacePlugin] failed to connect. Won't be alerting anymore.");
+                                    System.out.println("[DivictusInterfacePlugin] Retrying will continue silently.");
+                                }
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -40,7 +51,7 @@ public class Websockets {
                         break;
                     }
                     try {
-                        Thread.sleep(750);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

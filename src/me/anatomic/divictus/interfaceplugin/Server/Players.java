@@ -1,5 +1,6 @@
 package me.anatomic.divictus.interfaceplugin.Server;
 
+import me.anatomic.divictus.interfaceplugin.network.ChatMessage;
 import me.anatomic.divictus.interfaceplugin.network.Websockets;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -20,13 +21,16 @@ public class Players implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Bukkit.getLogger().info(event.getPlayer().getName() + " joined the server!");
         System.out.println(wsclient);
-        wsclient.ws.sendText(String.format(event.getPlayer().getName() + " joined the server!"));
+        ChatMessage msg = new ChatMessage("", event.getPlayer().getName() + " joined the server!");
+        wsclient.ws.sendText(msg.jsonObj.toString());
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event){
         Bukkit.getLogger().info(event.getPlayer().getName() + " left the server!");
         System.out.println(wsclient);
+        ChatMessage msg = new ChatMessage("", event.getPlayer().getName() + " left the server!");
+        wsclient.ws.sendText(msg.jsonObj.toString());
         wsclient.ws.sendText(String.format(event.getPlayer().getName() + " left the server!"));
     }
 
