@@ -1,6 +1,7 @@
 package me.anatomic.divictus.interfaceplugin.Server;
 
 import me.anatomic.divictus.interfaceplugin.network.ChatMessage;
+import me.anatomic.divictus.interfaceplugin.network.IssuedCommand;
 import me.anatomic.divictus.interfaceplugin.network.Websockets;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -36,8 +37,9 @@ public class Players implements Listener {
 
     @EventHandler
     public void onPlayerCommandPreprocessEvent(PlayerCommandPreprocessEvent event){
+        IssuedCommand cmd = new IssuedCommand(event.getPlayer().getName(), event.getMessage());
         Bukkit.getLogger().info(String.format("[***] <%s> used the command %s", event.getPlayer().getPlayerListName(), event.getMessage()));
-        wsclient.ws.sendText(String.format("[***] <%s> used the command %s", event.getPlayer().getPlayerListName(), event.getMessage()));
+        wsclient.ws.sendText(cmd.jsonObj.toString());
 
     }
 

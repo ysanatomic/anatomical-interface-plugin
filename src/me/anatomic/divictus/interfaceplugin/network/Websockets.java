@@ -15,7 +15,7 @@ public class Websockets {
 
     Gson gson =  new GsonBuilder().create();
     public WebSocket ws = null; // actual websocket
-    boolean runningSocket = false;
+    public boolean runningSocket = false;
     boolean runningListener = false;
     boolean wsPermitted = true;
 
@@ -32,6 +32,7 @@ public class Websockets {
                         try {
                             ws = new WebSocketFactory().createSocket(path, 5000).connect();
                             runningSocket = true;
+                            System.out.println("[DivictusInterfacePlugin] connected to WebSocket.");
                             i = 0; // reset the counter of times it wasn't able to connect;
                         } catch (WebSocketException e) {
                             runningSocket = false;
@@ -84,28 +85,37 @@ public class Websockets {
     public void initiateWebSocketListener(InterfacePlugin context){
         ws.addListener(new WebSocketAdapter(){
 
-            public void onConnectionError(WebSocket websocket, WebSocketException exception) throws Exception {
+            @Override
+            public void onConnectError(WebSocket websocket, WebSocketException exception) throws Exception {
                 super.onConnectError(websocket, exception);
-                    runningListener = false;
+                runningListener = false;
+                System.out.println("[DivictusInterfacePlugin] connection error.");
+
             }
 
+            @Override
             public void onError(WebSocket websocket, WebSocketException cause) throws Exception {
                 super.onError(websocket, cause);
+                System.out.println("[DivictusInterfacePlugin] thrown error.");
+
             }
 
-            public void onDisconnect(
+            @Override
+            public void onDisconnected(
                     WebSocket websocket,
                     WebSocketFrame serverCloseFrame,
                     WebSocketFrame clientCloseFrame,
-                    Boolean closedByServer
+                    boolean closedByServer
             ) throws Exception {
                 super.onDisconnected(websocket, serverCloseFrame, clientCloseFrame, closedByServer);
-                System.out.println("Disconnected");
+                System.out.println("[DivictusInterfacePlugin] disconnected from WebSocket.");
+
                 runningSocket = false;
                 runningListener = false;
             }
 
-            public void onTextManager(WebSocket websocket, String text) throws Exception {
+            @Override
+            public void onTextMessage(WebSocket websocket, String text) throws Exception {
                 super.onTextMessage(websocket, text);
                 System.out.println(text);
             }
