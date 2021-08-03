@@ -5,9 +5,11 @@ import com.google.gson.GsonBuilder;
 import com.neovisionaries.ws.client.*;
 import me.anatomic.divictus.interfaceplugin.InterfacePlugin;
 import me.anatomic.divictus.interfaceplugin.Server.SendMessage;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import java.io.IOException;
-import java.util.UUID;
+import java.util.*;
 
 public class Websockets {
 
@@ -34,11 +36,23 @@ public class Websockets {
             this.text = text;
         }
     }
+    public class inquiryFromWS {
+        private final String ticket;
+        private final String cmd;
+
+        public inquiryFromWS(String ticket, String cmd) {
+            System.out.println("Through here 2");
+            this.ticket = ticket;
+            this.cmd = cmd;
+        }
+    }
 
     public class IncomingTextFromWS {
         private final MessageFromWS message;
-        public IncomingTextFromWS(MessageFromWS message){
-            this.message = message  ;
+        private final inquiryFromWS inquiry;
+        public IncomingTextFromWS(MessageFromWS message, inquiryFromWS inquiry){
+            this.message = message;
+            this.inquiry = inquiry;
         }
     }
 
@@ -141,10 +155,26 @@ public class Websockets {
                 System.out.println("here");
                 IncomingTextFromWS incoming = gson.fromJson(text, IncomingTextFromWS.class);
                 System.out.println(incoming);
-                System.out.println(incoming.message);
-                System.out.println(incoming.message.text);
-                System.out.println(incoming.message.authorUUID);
-                new SendMessage(UUID.fromString(incoming.message.authorUUID), incoming.message.text);
+                if(incoming.message != null){
+                    new SendMessage(UUID.fromString(incoming.message.authorUUID), incoming.message.text);
+                } else if(incoming.inquiry != null){
+                    if(Objects.equals(incoming.inquiry.cmd, "getOnlinePlayerCount")) {
+                        Integer response = Bukkit.getServer().getOnlinePlayers().size();
+                        InquiryResponse msg = new InquiryResponse(incoming.inquiry.ticket, Integer.toString(response));
+                        ws.sendText(msg.jsonObj.toString());
+                    }
+                    if(Objects.equals(incoming.inquiry.cmd, "getOnlinePlayers")){
+                        Collection<? extends Player> players = Bukkit.getServer().getOnlinePlayers();
+                        List<String> playerNames = new ArrayList<String>();
+                        for(Player p: players){
+                            playerNames.add(p.getName());
+                        }
+                        System.out.println(playerNames);
+                        InquiryResponse msg = new InquiryResponse(incoming.inquiry.ticket, playerNames.toString());
+                        ws.sendText(msg.jsonObj.toString());
+
+                    }
+                }
             }
 
         });

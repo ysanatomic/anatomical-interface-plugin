@@ -7,9 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4803fe2f-1da6-42f9-84d1-0f9ebdaf5383" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/InquiryResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/SendMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/SendMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/TestCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/TestCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +62,9 @@
       <workItem from="1627748308798" duration="9766000" />
       <workItem from="1627762511490" duration="646000" />
       <workItem from="1627771019212" duration="458000" />
-      <workItem from="1627811810811" duration="9788000" />
+      <workItem from="1627811810811" duration="11243000" />
+      <workItem from="1627891141607" duration="5898000" />
+      <workItem from="1627976750756" duration="4924000" />
     </task>
     <servers />
   </component>
@@ -79,5 +81,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
