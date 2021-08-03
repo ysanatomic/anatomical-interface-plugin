@@ -11,4 +11,7 @@ commands:
   pinfo:
     description: Notes for the user from the Staff
     usage: /<command> player
+  newnote:
+    description: Create a note about a user.
+    usage: /command user note
 

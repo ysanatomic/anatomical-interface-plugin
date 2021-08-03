@@ -48,6 +48,7 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
 
         this.getCommand("test").setExecutor(new TestCommand());
         this.getCommand("pinfo").setExecutor(new ViewInfoCommand());
+        this.getCommand("newnote").setExecutor(new NewNoteCommand(ws));
 
 
         protocolManager.addPacketListener(new PacketAdapter(this,
