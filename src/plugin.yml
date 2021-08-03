@@ -8,4 +8,7 @@ commands:
   test:
     description: Test Command
     usage: /<command>
+  pinfo:
+    description: Notes for the user from the Staff
+    usage: /<command> player
 

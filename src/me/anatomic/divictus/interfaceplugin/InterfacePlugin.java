@@ -6,13 +6,10 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.reflect.StructureModifier;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
-import me.anatomic.divictus.interfaceplugin.Server.ChatFeed;
-import me.anatomic.divictus.interfaceplugin.Server.Players;
-import me.anatomic.divictus.interfaceplugin.Server.TestCommand;
+import me.anatomic.divictus.interfaceplugin.Server.*;
 import me.anatomic.divictus.interfaceplugin.network.Websockets;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-import me.anatomic.divictus.interfaceplugin.Server.Chat;
 import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.ProtocolLibrary;
 import org.json.simple.JSONObject;
@@ -50,6 +47,7 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         ChatFeed chatfeed = new ChatFeed(protocolManager, this, ws);
 
         this.getCommand("test").setExecutor(new TestCommand());
+        this.getCommand("pinfo").setExecutor(new ViewInfoCommand());
 
 
         protocolManager.addPacketListener(new PacketAdapter(this,
