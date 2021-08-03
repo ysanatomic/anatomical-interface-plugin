@@ -7,10 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4803fe2f-1da6-42f9-84d1-0f9ebdaf5383" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/NewNoteCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/NoteRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/NewNoteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/NewNoteCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +63,7 @@
       <workItem from="1627771019212" duration="458000" />
       <workItem from="1627811810811" duration="11243000" />
       <workItem from="1627891141607" duration="5898000" />
-      <workItem from="1627976750756" duration="15097000" />
+      <workItem from="1627976750756" duration="17111000" />
     </task>
     <servers />
   </component>

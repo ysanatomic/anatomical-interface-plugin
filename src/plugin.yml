@@ -11,7 +11,12 @@ commands:
   pinfo:
     description: Notes for the user from the Staff
     usage: /<command> player
+    permission: divictusinterface.notes
   newnote:
     description: Create a note about a user.
-    usage: /command user note
+    permission: divictusinterface.notes
+    usage: /<command> user and you write your note
 
+permissions:
+  divictusinterface.notes:
+    description: You can add notes about users!

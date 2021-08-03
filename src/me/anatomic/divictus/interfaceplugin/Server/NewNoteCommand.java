@@ -22,22 +22,27 @@ public class NewNoteCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // /newnote AnatomicGod <....>
-        String username = args[0];
-        ArrayList<String> argWords = new ArrayList<String>(Arrays.asList(args));
-        System.out.println(argWords);
-        argWords.remove(0);
-        String noteContent = String.join(" ", argWords);
-        NoteRequest note = new NoteRequest(username, Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(),
-                noteContent);
-        System.out.println(note.jsonObj);
-        System.out.println(wsC);
-        System.out.println(wsC.ws);
-        if(wsC == null || wsC.ws == null || !wsC.runningSocket){
-            sender.sendMessage("[*} There is no connection to the interface currently.");
+        if (args.length < 2){
+            return false;
+        }
+        else {
+            String username = args[0];
+            ArrayList<String> argWords = new ArrayList<String>(Arrays.asList(args));
+            System.out.println(argWords);
+            argWords.remove(0);
+            String noteContent = String.join(" ", argWords);
+            NoteRequest note = new NoteRequest(username, Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(),
+                    noteContent);
+            System.out.println(note.jsonObj);
+            System.out.println(wsC);
+            System.out.println(wsC.ws);
+            if(wsC == null || wsC.ws == null || !wsC.runningSocket){
+                sender.sendMessage("[*} There is no connection to the interface currently.");
+                return true;
+            }
+            wsC.ws.sendText(note.jsonObj.toString());
+            sender.sendMessage("[***] Note to player added!");
             return true;
         }
-        wsC.ws.sendText(note.jsonObj.toString());
-        sender.sendMessage("[***] Note to player added!");
-        return true;
     }
 }
