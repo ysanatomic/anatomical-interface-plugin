@@ -2,14 +2,13 @@ package me.anatomic.divictus.interfaceplugin.network;
 
 import org.json.simple.JSONObject;
 
-public class NoteRequest {
+public class GetNotesRequest {
     public JSONObject jsonObj = new JSONObject();
 
-    public NoteRequest(String username, String madebyUUID, String note){
+    public GetNotesRequest(String username, String requestedByUUID){
         JSONObject innerObj = new JSONObject();
-        innerObj.put("note", note);
         innerObj.put("username", username);
-        innerObj.put("madebyUUID", madebyUUID);
-        jsonObj.put("noteContent", innerObj);
+        innerObj.put("requestedByUUID", requestedByUUID);
+        jsonObj.put("getNoteRequest", innerObj);
     }
 }

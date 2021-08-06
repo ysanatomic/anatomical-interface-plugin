@@ -1,7 +1,6 @@
 package me.anatomic.divictus.interfaceplugin.Server;
 
-import com.neovisionaries.ws.client.WebSocket;
-import me.anatomic.divictus.interfaceplugin.network.NoteRequest;
+import me.anatomic.divictus.interfaceplugin.network.SetNoteRequest;
 import me.anatomic.divictus.interfaceplugin.network.Websockets;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -10,7 +9,6 @@ import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class NewNoteCommand implements CommandExecutor {
 
@@ -31,7 +29,7 @@ public class NewNoteCommand implements CommandExecutor {
             System.out.println(argWords);
             argWords.remove(0);
             String noteContent = String.join(" ", argWords);
-            NoteRequest note = new NoteRequest(username, Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(),
+            SetNoteRequest note = new SetNoteRequest(username, Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(),
                     noteContent);
             System.out.println(note.jsonObj);
             System.out.println(wsC);
@@ -41,7 +39,7 @@ public class NewNoteCommand implements CommandExecutor {
                 return true;
             }
             wsC.ws.sendText(note.jsonObj.toString());
-            sender.sendMessage("[***] Note to player added!");
+            sender.sendMessage("[***] Note to " + args[0] + " added!");
             return true;
         }
     }

@@ -47,7 +47,7 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         ChatFeed chatfeed = new ChatFeed(protocolManager, this, ws);
 
         this.getCommand("test").setExecutor(new TestCommand());
-        this.getCommand("pinfo").setExecutor(new ViewInfoCommand());
+        this.getCommand("pinfo").setExecutor(new ViewInfoCommand(ws));
         this.getCommand("newnote").setExecutor(new NewNoteCommand(ws));
 
 

@@ -47,12 +47,38 @@ public class Websockets {
         }
     }
 
+    public class note {
+        private final Integer id;
+        private final String madeBy;
+        private final String content;
+
+        public note(Integer id, String madeBy, String content){
+            this.id = id;
+            this.madeBy = madeBy;
+            this.content = content;
+        }
+
+    }
+
+    public class notesResponseFromWS {
+        private final String requesterUUID;
+        private final note[] notes;
+
+        public notesResponseFromWS(String requesterUUID, note[] notes){
+            this.requesterUUID = requesterUUID;
+            this.notes = notes;
+        }
+
+    }
+
     public class IncomingTextFromWS {
         private final MessageFromWS message;
         private final inquiryFromWS inquiry;
-        public IncomingTextFromWS(MessageFromWS message, inquiryFromWS inquiry){
+        private final notesResponseFromWS notesResponse;
+        public IncomingTextFromWS(MessageFromWS message, inquiryFromWS inquiry, notesResponseFromWS notesResponse){
             this.message = message;
             this.inquiry = inquiry;
+            this.notesResponse = notesResponse;
         }
     }
 
@@ -172,7 +198,25 @@ public class Websockets {
                         System.out.println(playerNames);
                         InquiryResponse msg = new InquiryResponse(incoming.inquiry.ticket, playerNames.toString());
                         ws.sendText(msg.jsonObj.toString());
-
+                    }
+                } else if(incoming.notesResponse != null){
+                    String uuid = incoming.notesResponse.requesterUUID;
+                    note[] notes = incoming.notesResponse.notes;
+                    Player player = Bukkit.getPlayer(UUID.fromString(uuid));
+                    Bukkit.getServer().dispatchCommand(
+                        Bukkit.getConsoleSender(),
+                        "tellraw " + player.getName() +
+                                " {text:\"" + "==============================" + "\", \"color\": \"red\"}");
+                    for(note note : notes){
+                        Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Note by: " + note.madeBy + "\", \"color\": \"green\"}");
+                        player.sendMessage(note.content);
+                        Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"" + "==============================" + "\", \"color\": \"red\"}");
                     }
                 }
             }

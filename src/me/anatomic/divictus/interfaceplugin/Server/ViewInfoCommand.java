@@ -1,5 +1,8 @@
 package me.anatomic.divictus.interfaceplugin.Server;
 
+import com.avaje.ebeaninternal.server.query.BackgroundIdFetch;
+import me.anatomic.divictus.interfaceplugin.network.GetNotesRequest;
+import me.anatomic.divictus.interfaceplugin.network.Websockets;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,6 +12,12 @@ import java.util.Arrays;
 
 public class ViewInfoCommand implements CommandExecutor{
 
+    Websockets wsC;
+    public ViewInfoCommand(Websockets ws){
+        wsC = ws;
+    }
+
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length == 0){
@@ -16,9 +25,13 @@ public class ViewInfoCommand implements CommandExecutor{
             return false;
         }
         else {
+
+            GetNotesRequest request = new GetNotesRequest(args[0], Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString());
+            wsC.ws.sendText(request.jsonObj.toString());
+
             System.out.println(Arrays.toString(args));
             String url = "http://localhost:8000/player/"+args[0]+"/";
-            String message = "Click this to get notes about "+args[0];
+            String message = "Click this to get all notes about "+args[0];
             Bukkit.getServer().dispatchCommand(
                     Bukkit.getConsoleSender(),
                     "tellraw " + sender.getName() +
