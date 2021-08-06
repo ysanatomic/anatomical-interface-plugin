@@ -2,6 +2,7 @@ package me.anatomic.divictus.interfaceplugin.Server;
 
 import me.anatomic.divictus.interfaceplugin.network.ChatMessage;
 import me.anatomic.divictus.interfaceplugin.network.IssuedCommand;
+import me.anatomic.divictus.interfaceplugin.network.PlayerOnlineOfflineStatus;
 import me.anatomic.divictus.interfaceplugin.network.Websockets;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -24,6 +25,8 @@ public class Players implements Listener {
         System.out.println(wsclient);
         ChatMessage msg = new ChatMessage("", event.getPlayer().getName() + " joined the server!");
         wsclient.ws.sendText(msg.jsonObj.toString());
+        PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), true);
+        wsclient.ws.sendText(toSend.jsonObj.toString());
     }
 
     @EventHandler
@@ -33,6 +36,8 @@ public class Players implements Listener {
         ChatMessage msg = new ChatMessage("", event.getPlayer().getName() + " left the server!");
         wsclient.ws.sendText(msg.jsonObj.toString());
         wsclient.ws.sendText(String.format(event.getPlayer().getName() + " left the server!"));
+        PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), false);
+        wsclient.ws.sendText(toSend.jsonObj.toString());
     }
 
     @EventHandler
