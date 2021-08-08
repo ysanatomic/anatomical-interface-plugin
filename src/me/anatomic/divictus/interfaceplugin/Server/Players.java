@@ -23,7 +23,7 @@ public class Players implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Bukkit.getLogger().info(event.getPlayer().getName() + " joined the server!");
         System.out.println(wsclient);
-        ChatMessage msg = new ChatMessage("", event.getPlayer().getName() + " joined the server!");
+        ChatMessage msg = new ChatMessage("Server", event.getPlayer().getName() + " joined the server!");
         wsclient.ws.sendText(msg.jsonObj.toString());
         PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), true);
         wsclient.ws.sendText(toSend.jsonObj.toString());
@@ -33,7 +33,7 @@ public class Players implements Listener {
     public void onPlayerQuit(PlayerQuitEvent event){
         Bukkit.getLogger().info(event.getPlayer().getName() + " left the server!");
         System.out.println(wsclient);
-        ChatMessage msg = new ChatMessage("", event.getPlayer().getName() + " left the server!");
+        ChatMessage msg = new ChatMessage("Server", event.getPlayer().getName() + " left the server!");
         wsclient.ws.sendText(msg.jsonObj.toString());
         wsclient.ws.sendText(String.format(event.getPlayer().getName() + " left the server!"));
         PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), false);
