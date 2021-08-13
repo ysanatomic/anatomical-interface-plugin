@@ -25,8 +25,17 @@ public class ViewInfoCommand implements CommandExecutor{
             return false;
         }
         else {
-
-            GetNotesRequest request = new GetNotesRequest(args[0], Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString());
+            Integer page = 1;
+            if(args.length < 2){
+                page = 1;
+            } else {
+                try{
+                    page = Integer.parseInt(args[1]);
+                } catch(Exception e){
+                    page = 1;
+                }
+            }
+            GetNotesRequest request = new GetNotesRequest(args[0], Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(), page);
             wsC.ws.sendText(request.jsonObj.toString());
 
             System.out.println(Arrays.toString(args));

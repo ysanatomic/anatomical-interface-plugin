@@ -25,7 +25,7 @@ public class Players implements Listener {
         System.out.println(wsclient);
         ChatMessage msg = new ChatMessage("Server", event.getPlayer().getName() + " joined the server!");
         wsclient.ws.sendText(msg.jsonObj.toString());
-        PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), true);
+        PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), true, event.getPlayer().getUniqueId().toString());
         wsclient.ws.sendText(toSend.jsonObj.toString());
     }
 
@@ -36,7 +36,7 @@ public class Players implements Listener {
         ChatMessage msg = new ChatMessage("Server", event.getPlayer().getName() + " left the server!");
         wsclient.ws.sendText(msg.jsonObj.toString());
         wsclient.ws.sendText(String.format(event.getPlayer().getName() + " left the server!"));
-        PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), false);
+        PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), false, event.getPlayer().getUniqueId().toString());
         wsclient.ws.sendText(toSend.jsonObj.toString());
     }
 
