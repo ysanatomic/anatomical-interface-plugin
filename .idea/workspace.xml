@@ -7,13 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4803fe2f-1da6-42f9-84d1-0f9ebdaf5383" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/AllowReportsCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/BlockReportsCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ReportCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/ReportAbilityChange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/SendReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/PlayerInfoCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/GetPlayerInfoRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +72,7 @@
       <workItem from="1628240854310" duration="9568000" />
       <workItem from="1628338948862" duration="10111000" />
       <workItem from="1628768726483" duration="1497000" />
-      <workItem from="1628844169430" duration="11738000" />
+      <workItem from="1628844169430" duration="17281000" />
     </task>
     <servers />
   </component>

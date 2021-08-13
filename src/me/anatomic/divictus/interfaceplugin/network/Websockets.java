@@ -70,15 +70,41 @@ public class Websockets {
         }
 
     }
+    public class playerInfoResponseFromWS {
+        private final String requesterUUID;
+        private final String playerName;
+        private final Boolean banned;
+        private final Boolean muted;
+        private final Boolean allowedToReport;
+        private final Boolean isCurrentlyOnline;
+        private final String lastSeenIn;
+        private final String lastOnline;
+
+        public playerInfoResponseFromWS(String requesterUUID, String playerName, Boolean banned, Boolean muted, Boolean allowedToReport,
+                                        Boolean isCurrentlyOnline, String lastSeenIn, String lastOnline){
+            this.requesterUUID = requesterUUID;
+            this.playerName = playerName;
+            this.banned = banned;
+            this.muted = muted;
+            this.allowedToReport = allowedToReport;
+            this.isCurrentlyOnline = isCurrentlyOnline;
+            this.lastSeenIn = lastSeenIn;
+            this.lastOnline = lastOnline;
+        }
+
+    }
 
     public class IncomingTextFromWS {
         private final MessageFromWS message;
         private final inquiryFromWS inquiry;
         private final notesResponseFromWS notesResponse;
-        public IncomingTextFromWS(MessageFromWS message, inquiryFromWS inquiry, notesResponseFromWS notesResponse){
+        private final playerInfoResponseFromWS playerInfo;
+
+        public IncomingTextFromWS(MessageFromWS message, inquiryFromWS inquiry, notesResponseFromWS notesResponse, playerInfoResponseFromWS playerInfo){
             this.message = message;
             this.inquiry = inquiry;
             this.notesResponse = notesResponse;
+            this.playerInfo = playerInfo;
         }
     }
 
@@ -220,6 +246,56 @@ public class Websockets {
                             "tellraw " + player.getName() +
                                     " {text:\"" + "==============================" + "\", \"color\": \"red\"}");
                     }
+                } else if(incoming.playerInfo != null) {
+                    String requesterUUID = incoming.playerInfo.requesterUUID;
+                    String playerName = incoming.playerInfo.playerName;
+                    Boolean banned = incoming.playerInfo.banned;
+                    Boolean muted = incoming.playerInfo.muted;
+                    Boolean isAllowedToReport = incoming.playerInfo.allowedToReport;
+                    Boolean isCurrentlyOnline = incoming.playerInfo.isCurrentlyOnline;
+                    String lastSeenIn = incoming.playerInfo.lastSeenIn;
+                    String lastOnline = incoming.playerInfo.lastOnline;
+
+                    Player player = Bukkit.getPlayer(UUID.fromString(requesterUUID));
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Name: " + playerName + "\", \"color\": \"green\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Is currently Online: " + isCurrentlyOnline.toString() + "\", \"color\": \"blue\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Is/was last in: " + lastSeenIn.toString() + "\", \"color\": \"blue\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Was last online: " + lastOnline.toString() + "\", \"color\": \"blue\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Is Currently Banned: " + banned.toString() + "\", \"color\": \"red\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Is Currently Muted: " + muted.toString() + "\", \"color\": \"red\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Is Allowed to Report: " + isAllowedToReport.toString() + "\", \"color\": \"blue\"}");
+                    String url = "http://localhost:8000/player/"+playerName+"/";
+                    String message = "Click this to view "+playerName+"'s profile and logs.";
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"" + message + "\",clickEvent:{action:open_url,value:\"" +
+                                    url + "\"}, \"color\": \"green\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"" + "==============================" + "\", \"color\": \"red\"}");
                 }
             }
 

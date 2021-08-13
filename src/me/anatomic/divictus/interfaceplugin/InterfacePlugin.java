@@ -58,11 +58,12 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         ChatFeed chatfeed = new ChatFeed(protocolManager, this, ws);
 
         this.getCommand("test").setExecutor(new TestCommand());
-        this.getCommand("pinfo").setExecutor(new ViewInfoCommand(ws));
+        this.getCommand("notes").setExecutor(new ViewInfoCommand(ws));
         this.getCommand("newnote").setExecutor(new NewNoteCommand(ws));
         this.getCommand("report").setExecutor(new ReportCommand(ws, this));
         this.getCommand("blockreports").setExecutor(new BlockReportsCommand(ws));
         this.getCommand("allowreports").setExecutor(new AllowReportsCommand(ws));
+        this.getCommand("pinfo").setExecutor(new PlayerInfoCommand(ws));
 
         protocolManager.addPacketListener(new PacketAdapter(this,
                 ListenerPriority.NORMAL,

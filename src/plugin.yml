@@ -8,10 +8,14 @@ commands:
   test:
     description: Test Command
     usage: /<command>
-  pinfo:
+  notes:
     description: Notes for the user from the Staff
     usage: /<command> player page
     permission: divictusinterface.notes
+  pinfo:
+    description: Get Information about a player
+    usage: /<command> player
+    permission: divictusinterface.playerinfo
   newnote:
     description: Create a note about a user.
     permission: divictusinterface.notes
@@ -34,3 +38,5 @@ permissions:
     description: You can add notes about users!
   divictusinterface.reportcontrol:
     description: You can block and allow players from reporting.
+  divictusinterface.playerinfo:
+    description: You can get information about players from the Interface
