@@ -30,13 +30,19 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
     public void onEnable() {
         System.out.println("[DivictusInterfacePlugin] Plugin is enabled.");
         System.out.println("[DivictusInterfacePlugin] Developed by Anatomic.");
-
-
+        this.saveConfig();
+        if(!this.getConfig().isSet("interfaceURL")){
+            this.getConfig().set("interfaceURL", "localhost:8000");
+        }
+        if(!this.getConfig().isSet("authToken")){
+            this.getConfig().set("authToken", "insertyourtokenhere");
+        }
+        this.saveConfig();
         protocolManager = ProtocolLibrary.getProtocolManager();
 
 //        this.getCommand("kit").setExecutor(new TestCommand());
 
-//        new WSWrapper(clientPointer);
+//        new WSWrapper(clientPointer);s
 
 //        client = new WebSocketClient({})
 

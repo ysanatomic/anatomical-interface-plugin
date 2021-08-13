@@ -13,7 +13,7 @@ import java.util.*;
 
 public class Websockets {
 
-    String path = "ws://localhost:8000/ws/server/chat/e28f6137-24f1-46ca-b655-093565a78d46/";
+    //ex token e28f6137-24f1-46ca-b655-093565a78d46
 
     Gson gson =  new GsonBuilder().create();
     public WebSocket ws = null; // actual websocket
@@ -83,6 +83,8 @@ public class Websockets {
     }
 
     public void startWebSocket(InterfacePlugin context){
+        String path = "ws://" + context.getConfig().get("interfaceURL") + "/ws/server/"+ context.getConfig().get("authToken") +"/";
+
         (new Thread(new Runnable(){
             public void run(){
                 int i = 0;
