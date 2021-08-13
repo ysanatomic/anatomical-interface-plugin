@@ -16,7 +16,21 @@ commands:
     description: Create a note about a user.
     permission: divictusinterface.notes
     usage: /<command> user and you write your note
+  report:
+    description: Report players to the Staff of the Network.
+    usage: /<command> player reason
+  blockreports:
+    description: Block Network-wide a player from reporting.
+    permission: divictusinterface.reportcontrol
+    usage: /<command> player
+  allowreports:
+    description: Allow Network-wide a player to report
+    permission: divictusinterface.reportcontrol
+    usage: /<command> player
+
 
 permissions:
   divictusinterface.notes:
     description: You can add notes about users!
+  divictusinterface.reportcontrol:
+    description: You can block and allow players from reporting.

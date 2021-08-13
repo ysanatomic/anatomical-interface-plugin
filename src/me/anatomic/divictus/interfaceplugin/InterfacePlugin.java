@@ -9,6 +9,7 @@ import com.comphenix.protocol.wrappers.WrappedChatComponent;
 import me.anatomic.divictus.interfaceplugin.Server.*;
 import me.anatomic.divictus.interfaceplugin.network.Websockets;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.comphenix.protocol.ProtocolManager;
@@ -17,11 +18,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.util.ArrayList;
+
 
 public class InterfacePlugin extends JavaPlugin implements Listener {
 
     private ProtocolManager protocolManager;
     private JSONParser parser = new org.json.simple.parser.JSONParser();
+    public ArrayList<Player> reportPlayersOnTimeout = new ArrayList<Player>();
 
 
 
@@ -39,7 +43,6 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         }
         this.saveConfig();
         protocolManager = ProtocolLibrary.getProtocolManager();
-
 //        this.getCommand("kit").setExecutor(new TestCommand());
 
 //        new WSWrapper(clientPointer);s
@@ -57,7 +60,9 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         this.getCommand("test").setExecutor(new TestCommand());
         this.getCommand("pinfo").setExecutor(new ViewInfoCommand(ws));
         this.getCommand("newnote").setExecutor(new NewNoteCommand(ws));
-
+        this.getCommand("report").setExecutor(new ReportCommand(ws, this));
+        this.getCommand("blockreports").setExecutor(new BlockReportsCommand(ws));
+        this.getCommand("allowreports").setExecutor(new AllowReportsCommand(ws));
 
         protocolManager.addPacketListener(new PacketAdapter(this,
                 ListenerPriority.NORMAL,
