@@ -79,9 +79,10 @@ public class Websockets {
         private final Boolean isCurrentlyOnline;
         private final String lastSeenIn;
         private final String lastOnline;
+        private final Integer reportsIn24hours;
 
         public playerInfoResponseFromWS(String requesterUUID, String playerName, Boolean banned, Boolean muted, Boolean allowedToReport,
-                                        Boolean isCurrentlyOnline, String lastSeenIn, String lastOnline){
+                                        Boolean isCurrentlyOnline, String lastSeenIn, String lastOnline, Integer reportsIn24hours){
             this.requesterUUID = requesterUUID;
             this.playerName = playerName;
             this.banned = banned;
@@ -90,6 +91,7 @@ public class Websockets {
             this.isCurrentlyOnline = isCurrentlyOnline;
             this.lastSeenIn = lastSeenIn;
             this.lastOnline = lastOnline;
+            this.reportsIn24hours = reportsIn24hours;
         }
 
     }
@@ -255,6 +257,7 @@ public class Websockets {
                     Boolean isCurrentlyOnline = incoming.playerInfo.isCurrentlyOnline;
                     String lastSeenIn = incoming.playerInfo.lastSeenIn;
                     String lastOnline = incoming.playerInfo.lastOnline;
+                    Integer reportsIn24hours = incoming.playerInfo.reportsIn24hours;
 
                     Player player = Bukkit.getPlayer(UUID.fromString(requesterUUID));
                     Bukkit.getServer().dispatchCommand(
@@ -281,6 +284,10 @@ public class Websockets {
                             Bukkit.getConsoleSender(),
                             "tellraw " + player.getName() +
                                     " {text:\"Is Currently Muted: " + muted.toString() + "\", \"color\": \"red\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + player.getName() +
+                                    " {text:\"Reported " + reportsIn24hours.toString() + " times in the last 24 hours.\", \"color\": \"red\", \"bold\": \"true\"}");
                     Bukkit.getServer().dispatchCommand(
                             Bukkit.getConsoleSender(),
                             "tellraw " + player.getName() +

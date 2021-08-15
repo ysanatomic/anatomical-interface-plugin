@@ -64,6 +64,8 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         this.getCommand("blockreports").setExecutor(new BlockReportsCommand(ws));
         this.getCommand("allowreports").setExecutor(new AllowReportsCommand(ws));
         this.getCommand("pinfo").setExecutor(new PlayerInfoCommand(ws));
+        this.getCommand("resolvereports").setExecutor(new ResolveReportsCommand(ws));
+
 
         protocolManager.addPacketListener(new PacketAdapter(this,
                 ListenerPriority.NORMAL,

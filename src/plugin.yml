@@ -31,7 +31,10 @@ commands:
     description: Allow Network-wide a player to report
     permission: divictusinterface.reportcontrol
     usage: /<command> player
-
+  resolvereports:
+    description: Resolves all reports about a certain player.
+    permission: divictus.resolvereports
+    usage: /<command> player
 
 permissions:
   divictusinterface.notes:
@@ -40,3 +43,5 @@ permissions:
     description: You can block and allow players from reporting.
   divictusinterface.playerinfo:
     description: You can get information about players from the Interface
+  divictus.resolvereports:
+    description: Allows the staff to resolve all reports about a player
