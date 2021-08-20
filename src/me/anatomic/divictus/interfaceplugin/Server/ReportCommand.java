@@ -58,6 +58,32 @@ public class ReportCommand implements CommandExecutor {
             sender.sendMessage("[***] Report about " + args[0] + " sent!");
             plugin.reportPlayersOnTimeout.add(Bukkit.getPlayer(sender.getName()));
             BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
+            for(Player p: Bukkit.getOnlinePlayers()){
+                if(p.hasPermission("divictusinterface.playerinfo")){
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"==============================" + "\", \"color\": \"red\", \"bold\": \"true\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"NEW REPORT OF " + username + ".\", \"color\": \"red\", \"bold\": \"true\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"FROM " + sender.getName() + ".\", \"color\": \"green\", \"bold\": \"true\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"REPORT: " + reportContent + ".\", \"color\": \"blue\", \"bold\": \"true\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"==============================" + "\", \"color\": \"red\", \"bold\": \"true\"}");
+
+                }
+
+            }
             scheduler.scheduleSyncDelayedTask(plugin, new Runnable() {
                 @Override
                 public void run() {

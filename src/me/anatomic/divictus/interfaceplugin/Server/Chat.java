@@ -13,7 +13,6 @@ public class Chat implements Listener {
     public void onPlayerChat(AsyncPlayerChatEvent event){
         String eventMessage = event.getMessage();
         Player eventPlayer = event.getPlayer();
-        eventPlayer.sendMessage("Message received");
         Bukkit.getLogger().info("New message: " + eventMessage);
 //        Bukkit.getLogger().info(String.format("[*] <%s> %s", eventPlayer.getPlayerListName(), eventMessage));
 //
