@@ -5,9 +5,6 @@ main: me.anatomic.divictus.interfaceplugin.InterfacePlugin
 api-version: 1.8
 depend: [ProtocolLib]
 commands:
-  test:
-    description: Test Command
-    usage: /<command>
   notes:
     description: Notes for the user from the Staff
     usage: /<command> player page
@@ -35,6 +32,9 @@ commands:
     description: Resolves all reports about a certain player.
     permission: divictus.resolvereports
     usage: /<command> player
+  interfaceinfo:
+    description: Command that gives you information about the Interface.
+    usage: /<command>
 
 permissions:
   divictusinterface.notes:

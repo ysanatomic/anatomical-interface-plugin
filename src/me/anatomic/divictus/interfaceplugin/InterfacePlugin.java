@@ -57,7 +57,6 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new Players(ws), this);
         ChatFeed chatfeed = new ChatFeed(protocolManager, this, ws);
 
-        this.getCommand("test").setExecutor(new TestCommand());
         this.getCommand("notes").setExecutor(new ViewInfoCommand(ws));
         this.getCommand("newnote").setExecutor(new NewNoteCommand(ws));
         this.getCommand("report").setExecutor(new ReportCommand(ws, this));
@@ -65,6 +64,7 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         this.getCommand("allowreports").setExecutor(new AllowReportsCommand(ws));
         this.getCommand("pinfo").setExecutor(new PlayerInfoCommand(ws));
         this.getCommand("resolvereports").setExecutor(new ResolveReportsCommand(ws));
+        this.getCommand("interfaceinfo").setExecutor(new InfoCommand());
 
 
         protocolManager.addPacketListener(new PacketAdapter(this,
