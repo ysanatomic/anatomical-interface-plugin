@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,6 +41,34 @@ public class NewNoteCommand implements CommandExecutor {
             }
             wsC.ws.sendText(note.jsonObj.toString());
             sender.sendMessage("[***] Note to " + args[0] + " added!");
+
+            for(Player p: Bukkit.getOnlinePlayers()){
+                if(p.hasPermission("divictusinterface.playerinfo")){
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"==============================" + "\", \"color\": \"red\", \"bold\": \"true\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"NEW NOTE OF " + username + ".\", \"color\": \"red\", \"bold\": \"true\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"MADE BY " + sender.getName() + ".\", \"color\": \"green\", \"bold\": \"true\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"NOTE: " + noteContent + ".\", \"color\": \"blue\", \"bold\": \"true\"}");
+                    Bukkit.getServer().dispatchCommand(
+                            Bukkit.getConsoleSender(),
+                            "tellraw " + p.getName() +
+                                    " {text:\"==============================" + "\", \"color\": \"red\", \"bold\": \"true\"}");
+
+                }
+
+            }
+
             return true;
         }
     }
