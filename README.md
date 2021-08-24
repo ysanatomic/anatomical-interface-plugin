@@ -32,3 +32,5 @@ You should replace `http` with `https` and `ws` with `wss` if the interface is u
 ![Report Staff Message](https://i.imgur.com/1WE11Vq.png)
 
 ![Notes](https://i.imgur.com/S4bWLgQ.png)
+
+![Player info](https://i.imgur.com/K5JU7XN.png)
