@@ -31,7 +31,6 @@ public class PlayerInfoCommand implements CommandExecutor {
                     Bukkit.getConsoleSender(),
                     "tellraw " + sender.getName() +
                             " {text:\"" + "==============================" + "\", \"color\": \"red\"}");
-            System.out.println(Arrays.toString(args));
             return true;
         }
 

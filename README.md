@@ -19,9 +19,12 @@ The Config for the plugin is extremely simple.
 ```
 interfaceURL: localhost:8000
 authToken: e28f6137-24f1-46ca-b655-093565a78d46
-
+HttpOrHttps: http
+WsOrWss: ws
 ```
 You should replace the `interfaceURL` and `authToken` to match the token of your server client token from the interface.
+
+You should replace `http` with `https` and `ws` with `wss` if the interface is under SSL.
 
 
 ![Help Display](https://i.imgur.com/mweKf7r.png)

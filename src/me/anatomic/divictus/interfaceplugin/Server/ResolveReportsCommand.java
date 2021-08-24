@@ -25,9 +25,7 @@ public class ResolveReportsCommand implements CommandExecutor {
         else {
             String username = args[0];
             ResolveReports data = new ResolveReports(username, Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString());
-            System.out.println(data.jsonObj);
-            System.out.println(wsC);
-            System.out.println(wsC.ws);
+
             if(wsC == null || wsC.ws == null || !wsC.runningSocket){
                 sender.sendMessage("[*} There is no connection to the interface currently.");
                 return true;

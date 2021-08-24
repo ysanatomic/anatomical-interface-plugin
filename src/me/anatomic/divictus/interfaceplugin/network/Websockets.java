@@ -21,7 +21,7 @@ public class Websockets {
     boolean runningListener = false;
     boolean wsPermitted = true;
     private Object IncomingTextFromWS;
-
+    InterfacePlugin ctx;
     boolean isPermitted(){
         return wsPermitted;
     }
@@ -31,7 +31,6 @@ public class Websockets {
         private final String text;
 
         public MessageFromWS(String authorUUID, String text) {
-            System.out.println("Through here 2");
             this.authorUUID = authorUUID;
             this.text = text;
         }
@@ -41,7 +40,6 @@ public class Websockets {
         private final String cmd;
 
         public inquiryFromWS(String ticket, String cmd) {
-            System.out.println("Through here 2");
             this.ticket = ticket;
             this.cmd = cmd;
         }
@@ -111,7 +109,8 @@ public class Websockets {
     }
 
     public void startWebSocket(InterfacePlugin context){
-        String path = "ws://" + context.getConfig().get("interfaceURL") + "/ws/server/"+ context.getConfig().get("authToken") +"/";
+        ctx = context;
+        String path = context.getConfig().get("WsOrWss") + "://" + context.getConfig().get("interfaceURL") + "/ws/server/"+ context.getConfig().get("authToken") +"/";
 
         (new Thread(new Runnable(){
             public void run(){
@@ -207,10 +206,7 @@ public class Websockets {
             @Override
             public void onTextMessage(WebSocket websocket, String text) throws Exception {
                 super.onTextMessage(websocket, text);
-                System.out.println(text);
-                System.out.println("here");
                 IncomingTextFromWS incoming = gson.fromJson(text, IncomingTextFromWS.class);
-                System.out.println(incoming);
                 if(incoming.message != null){
                     new SendMessage(UUID.fromString(incoming.message.authorUUID), incoming.message.text);
                 } else if(incoming.inquiry != null){
@@ -225,7 +221,6 @@ public class Websockets {
                         for(Player p: players){
                             playerNames.add(p.getName());
                         }
-                        System.out.println(playerNames);
                         InquiryResponse msg = new InquiryResponse(incoming.inquiry.ticket, playerNames.toString());
                         ws.sendText(msg.jsonObj.toString());
                     }
@@ -292,7 +287,7 @@ public class Websockets {
                             Bukkit.getConsoleSender(),
                             "tellraw " + player.getName() +
                                     " {text:\"Is Allowed to Report: " + isAllowedToReport.toString() + "\", \"color\": \"blue\"}");
-                    String url = "http://localhost:8000/player/"+playerName+"/";
+                    String url = context.getConfig().get("HttpOrHttps") + "://" + context.getConfig().get("interfaceURL") + "/player/"+playerName+"/";
                     String message = "Click this to view "+playerName+"'s profile and logs.";
                     Bukkit.getServer().dispatchCommand(
                             Bukkit.getConsoleSender(),

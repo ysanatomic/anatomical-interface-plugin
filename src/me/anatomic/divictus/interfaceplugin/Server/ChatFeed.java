@@ -35,9 +35,7 @@ public class ChatFeed {
                     String message = packet.getStrings().read(0);
                     if (event.getPlayer() != null) {
                         ChatMessage msg = new ChatMessage(event.getPlayer().getName(), message);
-
-                        System.out.println(String.format("[***] <%s> %s", event.getPlayer().getName(), message));
-//                        client.ws.sendText(String.format("[***] <%s> %s", event.getPlayer().getName(), message));
+                        //  client.ws.sendText(String.format("[***] <%s> %s", event.getPlayer().getName(), message));
                         client.ws.sendText(msg.jsonObj.toString());
 //                        client.ws.sendText(packet)
                     }

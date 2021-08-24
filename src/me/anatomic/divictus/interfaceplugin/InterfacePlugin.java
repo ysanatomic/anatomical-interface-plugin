@@ -41,6 +41,12 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         if(!this.getConfig().isSet("authToken")){
             this.getConfig().set("authToken", "insertyourtokenhere");
         }
+        if(!this.getConfig().isSet("HttpOrHttps")){
+            this.getConfig().set("HttpOrHttps", "http");
+        }
+        if(!this.getConfig().isSet("WsOrWss")){
+            this.getConfig().set("WsOrWss", "ws");
+        }
         this.saveConfig();
         protocolManager = ProtocolLibrary.getProtocolManager();
 //        this.getCommand("kit").setExecutor(new TestCommand());
@@ -57,7 +63,7 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new Players(ws), this);
         ChatFeed chatfeed = new ChatFeed(protocolManager, this, ws);
 
-        this.getCommand("notes").setExecutor(new ViewInfoCommand(ws));
+        this.getCommand("notes").setExecutor(new ViewInfoCommand(ws, this));
         this.getCommand("newnote").setExecutor(new NewNoteCommand(ws));
         this.getCommand("report").setExecutor(new ReportCommand(ws, this));
         this.getCommand("blockreports").setExecutor(new BlockReportsCommand(ws));
@@ -75,9 +81,7 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
                 if (event.getPacketType() == PacketType.Play.Client.CHAT) {
                     PacketContainer packet = event.getPacket();
                     String message = packet.getStrings().read(0);
-                    System.out.println(event);
                     if (event.getPlayer() != null) {
-                        System.out.println(String.format("[***] <%s> %s", event.getPlayer().getName(), message));
                     }
                     if (message.contains("shit")
                             || message.contains("damn")) {
@@ -102,7 +106,6 @@ public class InterfacePlugin extends JavaPlugin implements Listener {
                             try{
                                 JSONObject json =(JSONObject) parser.parse(componets.read(0).getJson());
                                 //Congratulations! You now have a json object, you can also get the player who receives this message using event.getPlayer()!
-                                System.out.println(json);
                             }catch(ParseException e){
                                 e.printStackTrace();
                             }

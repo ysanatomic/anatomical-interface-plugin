@@ -27,14 +27,10 @@ public class NewNoteCommand implements CommandExecutor {
         else {
             String username = args[0];
             ArrayList<String> argWords = new ArrayList<String>(Arrays.asList(args));
-            System.out.println(argWords);
             argWords.remove(0);
             String noteContent = String.join(" ", argWords);
             SetNoteRequest note = new SetNoteRequest(username, Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(),
                     noteContent);
-            System.out.println(note.jsonObj);
-            System.out.println(wsC);
-            System.out.println(wsC.ws);
             if(wsC == null || wsC.ws == null || !wsC.runningSocket){
                 sender.sendMessage("[*} There is no connection to the interface currently.");
                 return true;

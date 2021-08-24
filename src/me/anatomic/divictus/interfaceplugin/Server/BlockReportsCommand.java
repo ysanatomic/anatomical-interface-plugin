@@ -27,9 +27,6 @@ public class BlockReportsCommand implements CommandExecutor {
         else {
             String username = args[0];
             ReportAbilityChange note = new ReportAbilityChange(username, false);
-            System.out.println(note.jsonObj);
-            System.out.println(wsC);
-            System.out.println(wsC.ws);
             if(wsC == null || wsC.ws == null || !wsC.runningSocket){
                 sender.sendMessage("[*} There is no connection to the interface currently.");
                 return true;

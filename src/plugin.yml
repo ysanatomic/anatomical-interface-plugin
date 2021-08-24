@@ -1,5 +1,5 @@
 name: DivictusInterfacePlugin
-version: 0.2
+version: 1.0
 author: Anatomic
 main: me.anatomic.divictus.interfaceplugin.InterfacePlugin
 api-version: 1.8

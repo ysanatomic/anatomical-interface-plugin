@@ -1,20 +1,25 @@
 package me.anatomic.divictus.interfaceplugin.Server;
 
 import com.avaje.ebeaninternal.server.query.BackgroundIdFetch;
+import me.anatomic.divictus.interfaceplugin.InterfacePlugin;
 import me.anatomic.divictus.interfaceplugin.network.GetNotesRequest;
 import me.anatomic.divictus.interfaceplugin.network.Websockets;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.Plugin;
 
+import javax.naming.Context;
 import java.util.Arrays;
 
 public class ViewInfoCommand implements CommandExecutor{
 
     Websockets wsC;
-    public ViewInfoCommand(Websockets ws){
+    InterfacePlugin ctx;
+    public ViewInfoCommand(Websockets ws, InterfacePlugin ctxx){
         wsC = ws;
+        ctx = ctxx;
     }
 
 
@@ -38,14 +43,13 @@ public class ViewInfoCommand implements CommandExecutor{
             GetNotesRequest request = new GetNotesRequest(args[0], Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(), page);
             wsC.ws.sendText(request.jsonObj.toString());
 
-            System.out.println(Arrays.toString(args));
-            String url = "http://localhost:8000/player/"+args[0]+"/";
+            String url = ctx.getConfig().get("HttpOrHttps") +"://" + ctx.getConfig().get("interfaceURL") + "/player/"+args[0]+"/";
             String message = "Click this to get all notes about "+args[0];
             Bukkit.getServer().dispatchCommand(
                     Bukkit.getConsoleSender(),
                     "tellraw " + sender.getName() +
                             " {text:\"" + message + "\",clickEvent:{action:open_url,value:\"" +
-                            url + "\"}, \"color\": \"green\"}");
+                            url + "\"}, \"coor\": \"green\"}");
             return true;
         }
 

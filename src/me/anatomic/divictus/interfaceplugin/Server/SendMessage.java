@@ -10,12 +10,10 @@ import java.util.UUID;
 public class SendMessage {
 
     public SendMessage(UUID uuid, String msg){
-        System.out.println("Hello here");
         if(msg.startsWith("/")){
             // execute command
         } else{
             String playerName = Bukkit.getOfflinePlayer(uuid).getName();
-            System.out.println();
             Bukkit.getServer().dispatchCommand(
                     Bukkit.getConsoleSender(),
                     "tellraw @a" +

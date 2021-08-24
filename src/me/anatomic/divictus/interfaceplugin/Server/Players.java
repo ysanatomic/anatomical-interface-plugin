@@ -21,8 +21,6 @@ public class Players implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        Bukkit.getLogger().info(event.getPlayer().getName() + " joined the server!");
-        System.out.println(wsclient);
         ChatMessage msg = new ChatMessage("Server", event.getPlayer().getName() + " joined the server!");
         wsclient.ws.sendText(msg.jsonObj.toString());
         PlayerOnlineOfflineStatus toSend = new PlayerOnlineOfflineStatus(event.getPlayer().getName(), true, event.getPlayer().getUniqueId().toString());
@@ -31,8 +29,6 @@ public class Players implements Listener {
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event){
-        Bukkit.getLogger().info(event.getPlayer().getName() + " left the server!");
-        System.out.println(wsclient);
         ChatMessage msg = new ChatMessage("Server", event.getPlayer().getName() + " left the server!");
         wsclient.ws.sendText(msg.jsonObj.toString());
         wsclient.ws.sendText(String.format(event.getPlayer().getName() + " left the server!"));
@@ -43,7 +39,6 @@ public class Players implements Listener {
     @EventHandler
     public void onPlayerCommandPreprocessEvent(PlayerCommandPreprocessEvent event){
         IssuedCommand cmd = new IssuedCommand(event.getPlayer().getName(), event.getMessage());
-        Bukkit.getLogger().info(String.format("[***] <%s> used the command %s", event.getPlayer().getPlayerListName(), event.getMessage()));
         wsclient.ws.sendText(cmd.jsonObj.toString());
 
     }

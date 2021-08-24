@@ -43,13 +43,9 @@ public class ReportCommand implements CommandExecutor {
                 return true;
             }
             ArrayList<String> argWords = new ArrayList<String>(Arrays.asList(args));
-            System.out.println(argWords);
             argWords.remove(0);
             String reportContent = String.join(" ", argWords);
             SendReport note = new SendReport(sender.getName(), reportContent, username);
-            System.out.println(note.jsonObj);
-            System.out.println(wsC);
-            System.out.println(wsC.ws);
             if(wsC == null || wsC.ws == null || !wsC.runningSocket){
                 sender.sendMessage("[*] There is no connection to the interface currently.");
                 return true;
