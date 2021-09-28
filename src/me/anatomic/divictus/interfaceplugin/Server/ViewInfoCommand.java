@@ -40,6 +40,10 @@ public class ViewInfoCommand implements CommandExecutor{
                     page = 1;
                 }
             }
+            if(wsC == null || wsC.ws == null || !wsC.runningSocket){
+                sender.sendMessage("[*] There is no connection to the interface currently.");
+                return true;
+            }
             GetNotesRequest request = new GetNotesRequest(args[0], Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(), page);
             wsC.ws.sendText(request.jsonObj.toString());
 

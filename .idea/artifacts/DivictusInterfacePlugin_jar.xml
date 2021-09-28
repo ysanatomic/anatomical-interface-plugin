@@ -6,7 +6,6 @@
       <element id="extracted-dir" path="$USER_HOME$/Downloads/slf4j-api-1.7.9.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/Java-WebSocket-1.5.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Documents/MinecraftTestServer/plugins/ProtocolLib.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/spigot-1.8-R0.1-SNAPSHOT-latest.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/nv-websocket-client-2.14.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/gson-2.8.7.jar" path-in-jar="/" />
     </root>

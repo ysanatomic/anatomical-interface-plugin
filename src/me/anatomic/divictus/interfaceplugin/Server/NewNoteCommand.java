@@ -25,45 +25,54 @@ public class NewNoteCommand implements CommandExecutor {
             return false;
         }
         else {
-            String username = args[0];
-            ArrayList<String> argWords = new ArrayList<String>(Arrays.asList(args));
-            argWords.remove(0);
-            String noteContent = String.join(" ", argWords);
-            SetNoteRequest note = new SetNoteRequest(username, Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(),
-                    noteContent);
-            if(wsC == null || wsC.ws == null || !wsC.runningSocket){
-                sender.sendMessage("[*} There is no connection to the interface currently.");
-                return true;
-            }
-            wsC.ws.sendText(note.jsonObj.toString());
-            sender.sendMessage("[***] Note to " + args[0] + " added!");
+            if(wsC.ws != null){
+                String username = args[0];
+                ArrayList<String> argWords = new ArrayList<String>(Arrays.asList(args));
+                argWords.remove(0);
+                String noteContent = String.join(" ", argWords);
+                SetNoteRequest note = new SetNoteRequest(username, Bukkit.getServer().getPlayer(sender.getName()).getUniqueId().toString(),
+                        noteContent);
+                if(wsC == null || wsC.ws == null || !wsC.runningSocket){
+                    sender.sendMessage("[*} There is no connection to the interface currently.");
+                    return true;
+                }
+                wsC.ws.sendText(note.jsonObj.toString());
+                sender.sendMessage("[***] Note to " + args[0] + " added!");
 
-            for(Player p: Bukkit.getOnlinePlayers()){
-                if(p.hasPermission("divictusinterface.playerinfo")){
-                    Bukkit.getServer().dispatchCommand(
-                            Bukkit.getConsoleSender(),
-                            "tellraw " + p.getName() +
-                                    " {text:\"==============================" + "\", \"color\": \"red\", \"bold\": \"true\"}");
-                    Bukkit.getServer().dispatchCommand(
-                            Bukkit.getConsoleSender(),
-                            "tellraw " + p.getName() +
-                                    " {text:\"NEW NOTE OF " + username + ".\", \"color\": \"red\", \"bold\": \"true\"}");
-                    Bukkit.getServer().dispatchCommand(
-                            Bukkit.getConsoleSender(),
-                            "tellraw " + p.getName() +
-                                    " {text:\"MADE BY " + sender.getName() + ".\", \"color\": \"green\", \"bold\": \"true\"}");
-                    Bukkit.getServer().dispatchCommand(
-                            Bukkit.getConsoleSender(),
-                            "tellraw " + p.getName() +
-                                    " {text:\"NOTE: " + noteContent + ".\", \"color\": \"blue\", \"bold\": \"true\"}");
-                    Bukkit.getServer().dispatchCommand(
-                            Bukkit.getConsoleSender(),
-                            "tellraw " + p.getName() +
-                                    " {text:\"==============================" + "\", \"color\": \"red\", \"bold\": \"true\"}");
+                for(Player p: Bukkit.getOnlinePlayers()){
+                    if(p.hasPermission("divictusinterface.playerinfo")){
+                        Bukkit.getServer().dispatchCommand(
+                                Bukkit.getConsoleSender(),
+                                "tellraw " + p.getName() +
+                                        " {text:\"==============================" + "\", \"color\": \"red\", \"bold\": \"true\"}");
+                        Bukkit.getServer().dispatchCommand(
+                                Bukkit.getConsoleSender(),
+                                "tellraw " + p.getName() +
+                                        " {text:\"NEW NOTE OF " + username + ".\", \"color\": \"red\", \"bold\": \"true\"}");
+                        Bukkit.getServer().dispatchCommand(
+                                Bukkit.getConsoleSender(),
+                                "tellraw " + p.getName() +
+                                        " {text:\"MADE BY " + sender.getName() + ".\", \"color\": \"green\", \"bold\": \"true\"}");
+                        Bukkit.getServer().dispatchCommand(
+                                Bukkit.getConsoleSender(),
+                                "tellraw " + p.getName() +
+                                        " {text:\"NOTE: " + noteContent + ".\", \"color\": \"blue\", \"bold\": \"true\"}");
+                        Bukkit.getServer().dispatchCommand(
+                                Bukkit.getConsoleSender(),
+                                "tellraw " + p.getName() +
+                                        " {text:\"==============================" + "\", \"color\": \"red\", \"bold\": \"true\"}");
+
+                    }
 
                 }
-
             }
+            else{
+                Bukkit.getServer().dispatchCommand(
+                        Bukkit.getConsoleSender(),
+                        "tellraw " + sender.getName() +
+                                " {text:\"" + "No connection." + "\", \"color\": \"red\"}");
+            }
+
 
             return true;
         }

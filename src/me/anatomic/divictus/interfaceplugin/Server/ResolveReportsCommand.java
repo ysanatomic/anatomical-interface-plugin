@@ -30,6 +30,7 @@ public class ResolveReportsCommand implements CommandExecutor {
                 sender.sendMessage("[*} There is no connection to the interface currently.");
                 return true;
             }
+
             wsC.ws.sendText(data.jsonObj.toString());
             Bukkit.getServer().dispatchCommand(
                     Bukkit.getConsoleSender(),

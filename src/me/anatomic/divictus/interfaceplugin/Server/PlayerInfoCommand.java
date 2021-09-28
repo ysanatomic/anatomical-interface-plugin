@@ -25,13 +25,23 @@ public class PlayerInfoCommand implements CommandExecutor {
 //            Bukkit.getServer().getPlayer(sender.getName()).sendMessage("Correct usage: /pinfo <player>");
             return false;
         } else {
-            GetPlayerInfoRequest request = new GetPlayerInfoRequest(args[0], Bukkit.getPlayer(sender.getName()).getUniqueId().toString());
-            wsC.ws.sendText(request.jsonObj.toString());
-            Bukkit.getServer().dispatchCommand(
-                    Bukkit.getConsoleSender(),
-                    "tellraw " + sender.getName() +
-                            " {text:\"" + "==============================" + "\", \"color\": \"red\"}");
-            return true;
+            if(wsC.ws != null){
+                GetPlayerInfoRequest request = new GetPlayerInfoRequest(args[0], Bukkit.getPlayer(sender.getName()).getUniqueId().toString());
+                wsC.ws.sendText(request.jsonObj.toString());
+                Bukkit.getServer().dispatchCommand(
+                        Bukkit.getConsoleSender(),
+                        "tellraw " + sender.getName() +
+                                " {text:\"" + "==============================" + "\", \"color\": \"red\"}");
+                return true;
+            }
+            else {
+                Bukkit.getServer().dispatchCommand(
+                        Bukkit.getConsoleSender(),
+                        "tellraw " + sender.getName() +
+                                " {text:\"" + "No connection." + "\", \"color\": \"red\"}");
+                return true;
+            }
+
         }
 
     }

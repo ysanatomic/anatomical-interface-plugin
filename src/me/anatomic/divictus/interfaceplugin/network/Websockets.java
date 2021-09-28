@@ -213,6 +213,7 @@ public class Websockets {
                     if(Objects.equals(incoming.inquiry.cmd, "getOnlinePlayerCount")) {
                         Integer response = Bukkit.getServer().getOnlinePlayers().size();
                         InquiryResponse msg = new InquiryResponse(incoming.inquiry.ticket, Integer.toString(response));
+
                         ws.sendText(msg.jsonObj.toString());
                     }
                     if(Objects.equals(incoming.inquiry.cmd, "getOnlinePlayers")){

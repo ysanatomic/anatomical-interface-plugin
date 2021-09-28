@@ -25,14 +25,22 @@ public class AllowReportsCommand implements CommandExecutor {
             return false;
         }
         else {
-            String username = args[0];
-            ReportAbilityChange note = new ReportAbilityChange(username, true);
-            if(wsC == null || wsC.ws == null || !wsC.runningSocket){
-                sender.sendMessage("[*} There is no connection to the interface currently.");
-                return true;
+            if(wsC.ws != null){
+                String username = args[0];
+                ReportAbilityChange note = new ReportAbilityChange(username, true);
+                if(wsC == null || wsC.ws == null || !wsC.runningSocket){
+                    sender.sendMessage("[*} There is no connection to the interface currently.");
+                    return true;
+                }
+                wsC.ws.sendText(note.jsonObj.toString());
+                sender.sendMessage("[***] " + args[0] + " allowed to report!");
+            } else{
+                Bukkit.getServer().dispatchCommand(
+                        Bukkit.getConsoleSender(),
+                        "tellraw " + sender.getName() +
+                                " {text:\"" + "No connection." + "\", \"color\": \"red\"}");
             }
-            wsC.ws.sendText(note.jsonObj.toString());
-            sender.sendMessage("[***] " + args[0] + " allowed to report!");
+
             return true;
         }
     }

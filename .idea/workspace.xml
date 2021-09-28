@@ -8,7 +8,15 @@
   <component name="ChangeListManager">
     <list default="true" id="4803fe2f-1da6-42f9-84d1-0f9ebdaf5383" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/AllowReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/AllowReportsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/BlockReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/BlockReportsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/NewNoteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/NewNoteCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/PlayerInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/PlayerInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ResolveReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ResolveReportsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ViewInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ViewInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +41,18 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/plugin.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/AllowReportsCommand.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/README.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/SendMessage.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ViewInfoCommand.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Chat.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1w3N8MEPxySRAdDewdtAArWqlME" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -42,7 +62,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DivictusShopHandler" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -73,7 +93,12 @@
       <workItem from="1629017471234" duration="6481000" />
       <workItem from="1629110008815" duration="7786000" />
       <workItem from="1629718297415" duration="3359000" />
-      <workItem from="1629803072463" duration="4038000" />
+      <workItem from="1629803072463" duration="4737000" />
+      <workItem from="1632687370382" duration="528000" />
+      <workItem from="1632688544713" duration="1322000" />
+      <workItem from="1632762631574" duration="153000" />
+      <workItem from="1632763066926" duration="2940000" />
+      <workItem from="1632820264960" duration="3791000" />
     </task>
     <servers />
   </component>

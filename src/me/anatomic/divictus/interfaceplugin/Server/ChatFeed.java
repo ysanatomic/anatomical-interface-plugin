@@ -30,21 +30,19 @@ public class ChatFeed {
                 PacketType.Play.Client.CHAT) {
             @Override
             public void onPacketReceiving(PacketEvent event) {
-                if (event.getPacketType() == PacketType.Play.Client.CHAT) {
-                    PacketContainer packet = event.getPacket();
-                    String message = packet.getStrings().read(0);
-                    if (event.getPlayer() != null) {
-                        ChatMessage msg = new ChatMessage(event.getPlayer().getName(), message);
-                        //  client.ws.sendText(String.format("[***] <%s> %s", event.getPlayer().getName(), message));
-                        client.ws.sendText(msg.jsonObj.toString());
+                if(client.ws != null){
+                    if (event.getPacketType() == PacketType.Play.Client.CHAT) {
+                        PacketContainer packet = event.getPacket();
+                        String message = packet.getStrings().read(0);
+                        if (event.getPlayer() != null) {
+                            ChatMessage msg = new ChatMessage(event.getPlayer().getName(), message);
+                            //  client.ws.sendText(String.format("[***] <%s> %s", event.getPlayer().getName(), message));
+                            client.ws.sendText(msg.jsonObj.toString());
 //                        client.ws.sendText(packet)
-                    }
-                    if (message.contains("shit")
-                            || message.contains("damn")) {
-                        event.setCancelled(true);
-                        event.getPlayer().sendMessage("Bad manners!");
+                        }
                     }
                 }
+
             }
         });
     }

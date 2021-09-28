@@ -25,14 +25,23 @@ public class BlockReportsCommand implements CommandExecutor {
             return false;
         }
         else {
-            String username = args[0];
-            ReportAbilityChange note = new ReportAbilityChange(username, false);
-            if(wsC == null || wsC.ws == null || !wsC.runningSocket){
-                sender.sendMessage("[*} There is no connection to the interface currently.");
-                return true;
+            if(wsC.ws != null){
+                String username = args[0];
+                ReportAbilityChange note = new ReportAbilityChange(username, false);
+                if(wsC == null || wsC.ws == null || !wsC.runningSocket){
+                    sender.sendMessage("[*} There is no connection to the interface currently.");
+                    return true;
+                }
+                wsC.ws.sendText(note.jsonObj.toString());
+                sender.sendMessage("[***] " + args[0] + " blocked from reporting!");
+
+            } else {
+                Bukkit.getServer().dispatchCommand(
+                        Bukkit.getConsoleSender(),
+                        "tellraw " + sender.getName() +
+                                " {text:\"" + "No connection." + "\", \"color\": \"red\"}");
+
             }
-            wsC.ws.sendText(note.jsonObj.toString());
-            sender.sendMessage("[***] " + args[0] + " blocked from reporting!");
             return true;
         }
     }
