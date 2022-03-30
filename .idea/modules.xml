@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DivictusInterfacePlugin.iml" filepath="$PROJECT_DIR$/DivictusInterfacePlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AnatomicalInterfacePlugin.iml" filepath="$PROJECT_DIR$/AnatomicalInterfacePlugin.iml" />
     </modules>
   </component>
 </project>

@@ -7,16 +7,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4803fe2f-1da6-42f9-84d1-0f9ebdaf5383" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DivictusInterfacePlugin_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/DivictusInterfacePlugin_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/AllowReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/AllowReportsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/BlockReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/BlockReportsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/NewNoteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/NewNoteCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/PlayerInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/PlayerInfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ResolveReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ResolveReportsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ViewInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ViewInfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DivictusInterfacePlugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnatomicalInterfacePlugin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/InterfacePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/AllowReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/AllowReportsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/BlockReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/BlockReportsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/ChatFeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/CommandExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/CommandExecutorAsPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/CommandExecutorAsPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/InfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/NewNoteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/NewNoteCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/PlayerInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/PlayerInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ReportCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/ReportCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ResolveReportsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/ResolveReportsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/SendMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/SendMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/TestCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/TestCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ViewInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/ViewInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/WebPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/Server/WebPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/ChatMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/GetNotesRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/GetNotesRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/GetPlayerInfoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/GetPlayerInfoRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/InquiryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/InquiryResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/IssuedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/IssuedCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/PlayerOnlineOfflineStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/PlayerOnlineOfflineStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/ReportAbilityChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/ReportAbilityChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/ResolveReports.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/ResolveReports.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/SendReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/SendReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/SetNoteRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/SetNoteRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/anatomic/anatomical/interfaceplugin/network/Websockets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +67,15 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/plugin.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ChatFeed.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/InterfacePlugin.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/AllowReportsCommand.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/network/Websockets.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Players.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/README.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/SendMessage.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/ViewInfoCommand.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/me/anatomic/divictus/interfaceplugin/Server/Chat.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="DivictusInterfacePlugin/invalid/Minecraft" />
+    </ignored-facets>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1w3N8MEPxySRAdDewdtAArWqlME" />
   <component name="ProjectViewState">
@@ -62,11 +86,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DivictusShopHandler" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/gson-2.8.2.jar" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.5968586" />
+    <property name="project.structure.side.proportion" value="0.4352423" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -115,7 +139,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

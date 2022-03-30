@@ -2,12 +2,14 @@
   <artifact type="jar" name="DivictusInterfacePlugin:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/DivictusInterfacePlugin_jar</output-path>
     <root id="archive" name="DivictusInterfacePlugin.jar">
-      <element id="module-output" name="DivictusInterfacePlugin" />
+      <element id="module-output" name="AnatomicalInterfacePlugin" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/slf4j-api-1.7.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/Java-WebSocket-1.5.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Documents/MinecraftTestServer/plugins/ProtocolLib.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/nv-websocket-client-2.14.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/gson-2.8.7.jar" path-in-jar="/" />
+      <element id="library" level="project" name="nv-websocket-client-2.14" />
+      <element id="library" level="project" name="ProtocolLib" />
+      <element id="library" level="project" name="spigot-1.8-R0.1-SNAPSHOT-latest" />
+      <element id="library" level="project" name="slf4j-api-1.7.9" />
+      <element id="library" level="project" name="gson-2.8.2" />
     </root>
   </artifact>
 </component>
